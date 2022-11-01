@@ -9,7 +9,7 @@
 **Spring WebFlux**
 
 This reactive-stack web framework was added later in version 5.0 to support fully non-blocking Reactive Streams back 
-pressure. Spring WebFlux internally uses [Projec Reactor](https://projectreactor.io/) and its publisher implementations 
+pressure. Spring WebFlux internally uses [Project Reactor](https://projectreactor.io/) and its publisher implementations 
 [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html) and 
 [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html).
 
@@ -67,7 +67,7 @@ make stop-and-delete
 
 ### PgAdmin config
 If you want to visualize the database using the web client **PgAdmin** that is provided as service container, open a
-browser and go to [localhost:80](localhost:80), entering as credentials **admin@localhost.com**/**admin** as 
+browser and go to [localhost:80](http://localhost:80), entering as credentials **admin@localhost.com**/**admin** as 
 user/password respectively.
 
 ![img.png](src/main/resources/images_readme/img.png)

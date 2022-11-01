@@ -5,8 +5,14 @@ plugins {
     id "org.flywaydb.flyway" version "9.6.0"
 }
 
+ext {
+    postgreSQLVersion = '42.5.0'
+    flywayVersion = '9.6.0'
+    junitJupiterVersion = '5.9.0'
+}
+
 group = 'cl.atromilen'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -20,18 +26,27 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    implementation group: 'org.flywaydb', name: 'flyway-core', version: '9.6.0'
+    /* Spring Data, Persistence,*/
+    implementation group: 'org.flywaydb', name: 'flyway-core', version: "${flywayVersion}"
     implementation group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '0.8.13.RELEASE'
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.0'
+    implementation group: 'org.postgresql', name: 'postgresql', version: "${postgreSQLVersion}"
 
-
+    /* Testing */
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitJupiterVersion}"
+
+    /* Testcontainers dependencies to raise postgres db with r2dbc */
+    testImplementation "org.testcontainers:testcontainers:1.17.5"
+    testImplementation "org.testcontainers:junit-jupiter:1.17.5"
+    testImplementation "org.testcontainers:postgresql:1.17.5"
+    testImplementation "org.testcontainers:r2dbc:1.17.5"
+
 }
 
 tasks.named('test') {

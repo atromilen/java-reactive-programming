@@ -1,0 +1,18 @@
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: DEBUG
+            type: TRACE
+
+spring:
+    config:
+      activate:
+          on-profile: test-container
+#    These properties are dynamically set in the DirectorRepoIntegrationTest test class using @DynamicPropertySource.
+#    r2dbc:
+#        url: r2dbc:tc:postgresql:///testdb?TC_IMAGE_TAG=latest
+#        username: test
+#        password: test
+    flyway:
+        enabled: false
