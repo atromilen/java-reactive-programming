@@ -1,0 +1,21 @@
+INSERT INTO director(director_id, name) VALUES (1, 'Francis Ford Coppola');
+INSERT INTO director(director_id, name) VALUES (2, 'Martin Scorsese');
+INSERT INTO director(director_id, name) VALUES (3, 'Roman Polanski');
+INSERT INTO director(director_id, name) VALUES (4, 'David Fincher');
+INSERT INTO director(director_id, name) VALUES (5, 'Quentin Tarantino');
+INSERT INTO director(director_id, name) VALUES (6, 'Steven Spielberg');
+
+INSERT INTO movie(name, year, director) VALUES ('The Godfather', 1972, 1);
+INSERT INTO movie(name, year, director) VALUES ('Taxi Driver', 1976, 2);
+INSERT INTO movie(name, year, director) VALUES ('The Wolf of Wall Street', 2013, 2);
+INSERT INTO movie(name, year, director) VALUES ('The Pianist', 2001, 3);
+INSERT INTO movie(name, year, director) VALUES ('Seven', 1995, 4);
+INSERT INTO movie(name, year, director) VALUES ('Fight Club', 1999, 4);
+INSERT INTO movie(name, year, director) VALUES ('Pulp Fiction', 1994, 5);
+INSERT INTO movie(name, year, director) VALUES ('Reservoir Dogs', 1992, 5);
+INSERT INTO movie(name, year, director) VALUES ('Kill Bill Vol. 1', 2003, 5);
+INSERT INTO movie(name, year, director) VALUES ('Kill Bill Vol. 2', 2004, 5);
+INSERT INTO movie(name, year, director) VALUES ('Inglourious Basterds', 2009, 5);
+INSERT INTO movie(name, year, director) VALUES ('E.T.', 1982, 6);
+INSERT INTO movie(name, year, director) VALUES ('Schindler''s List', 1993, 6);
+INSERT INTO movie(name, year, director) VALUES ('Saving Private Ryan', 1999, 6);
