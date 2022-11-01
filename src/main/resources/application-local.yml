@@ -1,0 +1,17 @@
+logging:
+    level:
+        org.springframework.transaction: TRACE
+        org.springframework.data.r2dbc.connectionfactory: DEBUG
+
+spring:
+    config:
+        activate:
+            on-profile: local
+    r2dbc:
+        url: r2dbc:postgresql://localhost:5432/local_db?schema=movies_db
+        username: root
+        password: root
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.ddl-auto: none
+        show-sql: true
