@@ -9,7 +9,7 @@
 **Spring WebFlux**
 
 This reactive-stack web framework was added later in version 5.0 to support fully non-blocking Reactive Streams back 
-pressure. Spring WebFlux internally uses [Projec Reactor](https://projectreactor.io/) and its publisher implementations 
+pressure. Spring WebFlux internally uses [Project Reactor](https://projectreactor.io/) and its publisher implementations 
 [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html) and 
 [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html).
 
@@ -21,13 +21,20 @@ integrate SQL database using reactive drivers.
 **Wildfly**
 
 This framework is used for database migration, allowing us to remodel our application's database schema in a reliably 
-and easy way, having a backup for every change that our database schema suffer in the time.
+and easy way, having a backup for every change that our database schema suffer in the time. Documentation can be found
+[here](https://flywaydb.org/)
 
-**Docker utilities**
+**Docker compose**
 
-The project have a docker-compose file that starts all the services needed by this project, such as the **postgres** 
-database and the postgres client **pgadmin** (web version). So you won't need to install extra software to run the app,
-all is included in the box thanks to docker.
+The project is based on docker-compose to starts the infrastructure needed by this project. Docker compose is managing
+services such as [PostgreSQL](https://www.postgresql.org/) and PostgreSQL web client [pgAdmin](https://www.pgadmin.org/).
+
+**Makefile**
+
+All the commands related to docker services initialization, Springboot running or gradle task were automated using
+makefiles. This is a convenience and easy way to start all the infrastructure and build tasks entering only one command
+instead to follow several steps to run the application. [Here](https://makefiletutorial.com/) you can find documentation
+related to makefiles.
 
 ## Prerequisites
 1. **Java 11** is the base language used to code this application and you will need to install the jdk 11 to run the app.
@@ -67,7 +74,7 @@ make stop-and-delete
 
 ### PgAdmin config
 If you want to visualize the database using the web client **PgAdmin** that is provided as service container, open a
-browser and go to [localhost:80](localhost:80), entering as credentials **admin@localhost.com**/**admin** as 
+browser and go to [localhost:80](http://localhost:80), entering as credentials **admin@localhost.com**/**admin** as 
 user/password respectively.
 
 ![img.png](src/main/resources/images_readme/img.png)
