@@ -2,9 +2,10 @@
 start: run-app
 stop: stop-app
 build: run-services run-migrations
-clean: kill-services delete-containers-and-images
+stop-services: kill-services
+clean-services: kill-services delete-containers-and-images
 
-## Services to run for application startup
+## Tasks for building container services and start Spring Boot application
 
 # Create and start service containers
 run-services:
@@ -18,7 +19,7 @@ run-app:
 	@echo -e "\n${@}" && ./gradlew bootRun
 
 
-## Services to run to stop the application
+## Tasks for stopping application and/or service containers related
 
 # Force stop service containers.
 kill-services:

@@ -47,30 +47,36 @@ In Windows OS you can install it through some package manager like [Scoop](https
 
 ## Getting Started
 
-1. The first time that you clone this project, you will need to execute the next command:
+1. Once you've cloned the project, it will be necessary start docker service containers (postgres SQL and pgClient) and
+execute the initial database migration over _Postgre SQL_ using _Flyway_. For this, enter the following command:
+    ```bash
+    make build
+    ```
 
-```bash
-make start-from-zero
-```
-It will start up the docker images required by the application (postgres and pgadmin) and it will run the flyway 
-migration scripts over the postgres database.
+2. To start the Spring boot application, enter:
+    ```bash
+    make start
+    ```
+    Note: always it's possible to start a Spring Boot application directly in your preferred IDE or executing _**./gradlew bootRun**_
 
-2. If you only need to start the service containers, enter and execute the command:
-```bash
-make start
-```
+**Optional commands**
 
-3. [Optional] there are two make tasks for stop the service containers. If you want only to stop the service
-containers maintaining all the data and configs, enter and execute:
-```bash
-make stop
-```
+* If you need to stop the Spring Boot Application, open another terminal window and enter:
+    ```bash
+    make stop
+    ```
 
-At the opposite, if you want to stop the service containers, deleting the containers and removing the images
-associated from your local docker, execute the next command:
-```bash
-make stop-and-delete
-```
+* If you want only stop (kill) the service containers but preserving the state in the containers (migrations applied, data
+saved in database and so on), execute the next command:
+    ```bash
+    make stop-services
+    ```
+
+* If you want to stop the service containers and also you want to clean the data by removing the containers from your local
+docker and erase the docker images in your local machine, execute the next command:
+    ```bash
+    make clean-services
+    ```
 
 ### PgAdmin config
 If you want to visualize the database using the web client **PgAdmin** that is provided as service container, open a
@@ -93,3 +99,8 @@ In the **Connection** tab, enter the next information:
 
 The connection information is provided in the file docker-compose. It's important to notice that host must be **_postgres_** 
 and not localhost, due you're pointing to the host exposed in the container service called **postgres**.
+
+As you can see, you will have created the database **_local_db_** with the schema **_movies_db_** and the 2 tables
+_director_ and _movie_. You can query over these tables (remember the flyway migrations included initial example data). 
+
+![img.png](src/main/resources/images_readme/img_3.png)
